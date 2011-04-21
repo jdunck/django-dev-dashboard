@@ -34,7 +34,9 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = PROJECT_DIR.child('static_root')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = []
+STATICFILES_DIRS = (
+    str(PROJECT_DIR.child('static')),
+)
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 STATICFILES_FINDERS = (
