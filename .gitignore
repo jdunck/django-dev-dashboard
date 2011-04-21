@@ -5,3 +5,4 @@
 *.db
 static_root/
 trac-creds.txt
+.epio-app
