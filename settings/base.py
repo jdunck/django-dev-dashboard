@@ -2,6 +2,18 @@ from unipath import FSPath as Path
 
 PROJECT_DIR = Path(__file__).absolute().ancestor(2)
 
+#
+# My settings
+#
+
+_creds = PROJECT_DIR.child('trac-creds.txt').read_file().strip()
+TRAC_RPC_URL = "http://%s@code.djangoproject.com/login/rpc" % _creds
+TRAC_URL = "http://code.djangoproject.com/"
+
+#
+# Django settings follow...
+#
+
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
@@ -33,7 +45,7 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-SECRET_KEY = # Put your secret key here. Django defaults to a 50-char string.
+SECRET_KEY = "c55c3faa-6c32-11e0-818b-c7ea0e354dc2"
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -63,10 +75,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'dashboard',
 )
 
 LOGGING = {
